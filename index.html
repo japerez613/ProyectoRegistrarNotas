@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilos de CCS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styele.css">
+    <script src="js/datoCurso.js"></script>
+    <title>Proyecto Final</title>
+</head>
+<body>
+    
+    <div class="container col-8 my-5 br-2 rounded">
+        <div class="row g-3">
+            <div class="col-4 order-md-last">
+                <div class="card text-center bg-warning">
+                    <h4>Datos del Curso</h4>
+                </div>
+                <form class="row g-3 needs-validation">
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Nombre del Profesor</label>
+                            <input type="text" id="profe" class="form-control">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Nombre del curso</label>
+                            <input type="text" id="curso" class="form-control">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Sección</label>
+                            <input type="text" id="seccion" class="form-control">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label">Jornada</label>
+                            <input type="text" id="jornada" class="form-control">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <input type="button" class="btn btn-primary btn-block mb-4" value="Guardar" onclick="agregarCurso()">
+                        <button  type="reset" class="btn btn-danger btn-block mb-4">Cancelar</button>
+                    </div>
+                    
+                </form>
+                
+            </div>
+            <div class="col-8">
+                <div class="card bg-info text-center">
+                    <h3>REGISTRO DE NOTAS DE ALUMNO</h3>
+                </div>
+                <form class="row g-3 needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-12 mt-3">
+                            <label class="form-label" for="firstname">Apellido Alumno</label>
+                            <input type="text" id="apellido" class="form-control" placeholder="Ingrese el apellido del alumno" required>
+                            <div class="invalid-feedback">
+                                Ingrese apellido del alumno
+                            </div>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label class="form-label" for="firstname">Nombre Alumno</label>
+                            <input type="text" id="nombre" class="form-control" placeholder="Ingrese el nombre del alumno" required>
+                            <div class="invalid-feedback">
+                                Ingrese nombre del alumno
+                            </div>
+                        </div>
+                        
+                        <div class="col-3 mt-3">
+                            <label class="form-label" for="zip">Nota 1 </label>
+                            <input type="number" id="nota1" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 1
+                             </div>
+                        </div>
+                        <div class="col-3 mt-3">
+                            <label class="form-label" for="zip">Nota 2 </label>
+                            <input type="number" id="nota2" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 2
+                             </div>
+                        </div>
+                        <div class="col-3 mt-3">
+                            <label class="form-label" for="zip">Nota 3 </label>
+                            <input type="number" id="nota3" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 3
+                             </div>
+                        </div>                     
+                        <div class="col-3 mt-3">
+                            <label class="form-label" for="zip">Nota 4 </label>
+                            <input type="number" id="nota4" class="form-control" required>
+                            <div class="invalid-feedback">
+                                Ingrese la nota 4
+                             </div>
+                        </div>                     
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                        <input type="button" class="btn btn-primary btn-block mb-4" value="Registrar" onclick="agregarNotas()">
+                        <button  type="reset" class="btn btn-danger btn-block mb-4">Cancelar</button>
+                    </div>
+                    <hr>
+                    <div class="form-check">
+                        <!-- <input type="checkbox" class="form-check-input"> -->
+                        <label class="form-check-label">Al hacer click en el botón, se te dan instrucciones sobre el manejo del sistema.</label>
+                        <input type="button" class="btn btn-info btn-block mb-4" value="Ver Información" onclick="info()">
+                    </div>
+                    <hr>
+                    
+                </form>
+            </div>
+            
+        </div>
+        <hr>
+        <div class="card bg-info text-center">
+            <h4>TABLA DE RESULTADOS</h4>
+        </div>
+        
+        <div id="datoCurso"></div>
+        <hr>
+        <div class="car-footer p-2">
+            <!-- <button class="btn-primary" id="grabar">Grabar</button> -->
+            <table class="table table-striped table-bordered mt-3 " >
+                <thead class="text-center font-weight-bold">
+                    <tr class="bg-secondary text-white">
+                        <td>Nombre Alumno</td>
+                        <td>Nota 1</td>
+                        <td>Nota 2</td>
+                        <td>Nota 3</td>
+                        <td>Nota 4</td>
+                        <td>Promedio</td>
+                        <td>Observación</td>
+                    </tr>
+                </thead>
+                <tbody id="addtabla">
+                    
+                </tbody>                  
+            </table>
+       </div>
+    </div>  
+     <script src="js/promediar.js"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    </script>
+    <!-- Script de bootsatrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- Script de sweet alrt -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
